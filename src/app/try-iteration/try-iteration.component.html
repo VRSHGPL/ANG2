@@ -1,0 +1,23 @@
+
+<h1>Iterating a bunch of objects</h1>
+	<ul class="list-group">
+		<li *ngFor="let oneobject of someObjects" class="list-group-item"  (click)="onSelect(oneobject)"> 
+		{{oneobject.id}} {{oneobject.name}} </li>
+	</ul>
+
+	<h1>Iterating a bunch of external objects</h1>
+	<ul class="list-group">
+		<li *ngFor="let anotherObject of objectsFromOutside" class="list-group-item"  (click)="onSelect(anotherObject)"> 
+		{{anotherObject.id}} {{anotherObject.name}} </li>
+	</ul>
+
+
+	<h1>Iterating a bunch of promise objects</h1>
+	<ul class="list-group">
+		<li *ngFor="let anotherObject of objectsFromOutsideWithPromise" class="list-group-item"  (click)="onSelect(anotherObject)"> 
+		{{anotherObject.id}} {{anotherObject.name}} </li>
+	</ul>
+
+
+<app-select-an-object [someotherobject]="selectedObject"></app-select-an-object>
+
