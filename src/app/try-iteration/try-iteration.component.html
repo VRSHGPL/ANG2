@@ -21,3 +21,12 @@
 
 <app-select-an-object [someotherobject]="selectedObject"></app-select-an-object>
 
+<div *ngIf="selectedObject">
+  <h3>------------------------------------------------</h3>
+	<h3>{{selectedObject.name | uppercase}} 's Details through Router! </h3>
+	<button (click)="viewDetails()">View More Details </button>
+
+</div>
+
+
+

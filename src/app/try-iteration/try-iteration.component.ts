@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { Someclass } from './someclass';
+import { Router } from '@angular/router';
 
 import {FirstServiceService} from '../first-service.service';
 
@@ -22,7 +23,9 @@ export class TryIterationComponent implements OnInit {
 	selectedObject : Someclass;
 	//objectsFromOutside: Someclass[];
 	objectsFromOutside = this.firstService.getObjects();
-	objectsFromOutsideWithPromise;
+	//objectsFromOutsideWithPromise;
+	objectsFromOutsideWithPromise = this.firstService.getObjects();
+	objFromServer: Someclass;
 
 	getObjetsAsPromise() : void {
 		this.firstService.getObjectsAsPromise().then(x => this.objectsFromOutsideWithPromise = x);
@@ -34,12 +37,22 @@ export class TryIterationComponent implements OnInit {
 	}
 
  	// mentioning this as a private variable in constructor along with the providers entry does the injection
-	constructor(private firstService : FirstServiceService) {
+	constructor(private router:Router, private firstService : FirstServiceService) {
 
 	}
 
-	ngOnInit(): void{
+	ngOnInit(): void {
 		this.getObjetsAsPromise();
+		
+		//this.firstService.getObjectsFromSpring(1).then(x =>  {
+		//	this.objFromServer = x;	
+		//});
+		
+	}
+
+
+	viewDetails(): void {
+	  this.router.navigate(['detail', this.selectedObject.id]);
 	}
 }
 

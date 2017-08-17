@@ -8,7 +8,7 @@ export const OBJECTS: Someclass[] = [
 ];
 
 export const NUMBEROBJECTS: Someclass[] = [
-  { id: 11, name: 'One' },
-  { id: 12, name: 'Two' },
+  { id: 21, name: 'One' },
+  { id: 22, name: 'Two' },
  
 ];
